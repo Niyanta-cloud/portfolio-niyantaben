@@ -1,0 +1,62 @@
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Social Media</h4>
+        <div class="social-links" style="margin-top:8px">
+          <% if (settings.social && settings.social.github) { %><a href="<%= settings.social.github %>" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a><% } %>
+          <% if (settings.social && settings.social.linkedin) { %><a href="<%= settings.social.linkedin %>" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><% } %>
+          <% if (settings.social && settings.social.xing) { %><a href="<%= settings.social.xing %>" target="_blank" aria-label="Xing"><i class="fab fa-xing"></i></a><% } %>
+          <% if (settings.email) { %><a href="mailto:<%= settings.email %>" aria-label="Email"><i class="fas fa-envelope"></i></a><% } %>
+        </div>
+      </div>
+      <div>
+        <h4><%= t('footer_quick_nav') %></h4>
+        <ul>
+          <li><a href="#home"><%= t('nav_home') %></a></li>
+          <li><a href="#about"><%= t('nav_about') %></a></li>
+          <li><a href="#education"><%= t('nav_education') %></a></li>
+          <li><a href="#projects"><%= t('nav_projects') %></a></li>
+          <li><a href="#contact"><%= t('nav_contact') %></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><%= t('footer_contact_info') %></h4>
+        <ul>
+          <% if (settings.email) { %><li><a href="mailto:<%= settings.email %>"><%= settings.email %></a></li><% } %>
+          <% if (settings.phone) { %><li><%= settings.phone %></li><% } %>
+          <% if (settings.location) { %><li><%= settings.location %></li><% } %>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <%= new Date().getFullYear() %> <%= profile.name %>. <%= t('footer_copyright') %>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="certModal">
+  <img id="certModalImg" src="" alt="Certificate preview">
+</div>
+
+<script>
+function changeLang(code) {
+  const url = new URL(window.location);
+  url.searchParams.set('lang', code);
+  window.location = url.toString();
+}
+function updateResume() {
+  var lang = document.getElementById('resumeLang').value;
+  var en = '<%= resumeEn %>';
+  var de = '<%= resumeDe %>';
+  var url = lang === 'en' ? en : de;
+  document.getElementById('resumeDownload').href = url;
+  document.getElementById('resumeEmbed').src = url;
+}
+function viewResume() {
+  document.getElementById('resumeView').style.display = 'block';
+}
+</script>
+<script src="/js/main.js"></script>
+</body>
+</html>

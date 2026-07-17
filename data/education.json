@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "degree": "IT System Administrator & Cloud Architect (AWS, Azure)",
+    "degreeDe": "IT-Systemadministratorin & Cloud-Architektin (AWS, Azure)",
+    "institution": "Digital Career Institute (DCI)",
+    "period": "Feb 2026 – Present",
+    "detailKey": "education_dci_detail",
+    "topics": [
+      "System Administration → AWS Architecture + Terraform → Microsoft Azure",
+      "Cloud & Infrastructure: AWS, Microsoft Azure, Terraform, Linux System Administration, Networking, and IT Security.",
+      "DevOps & Automation: Docker, Docker Compose, GitHub Actions, CI/CD Pipelines, and Infrastructure as Code.",
+      "SRE & Monitoring: Prometheus, Grafana, Loki, Observability, High Availability, Autoscaling, and Reliability Engineering."
+    ],
+    "topicsDe": [
+      "Systemadministration → AWS-Architektur + Terraform → Microsoft Azure",
+      "Cloud & Infrastruktur: AWS, Microsoft Azure, Terraform, Linux-Systemadministration, Netzwerke und IT-Sicherheit.",
+      "DevOps & Automatisierung: Docker, Docker Compose, GitHub Actions, CI/CD-Pipelines und Infrastructure as Code.",
+      "SRE & Monitoring: Prometheus, Grafana, Loki, Beobachtbarkeit, Hochverfügbarkeit, Autoscaling und Zuverlässigkeitstechnik."
+    ]
+  },
+  {
+    "id": "2",
+    "degree": "Master of Computer Applications (MCA)",
+    "institution": "Gujarat Technological University",
+    "period": "Jun 2016 – Jul 2018",
+    "detailKey": "education_mca_detail",
+    "topics": [
+      "Software Development: Java, SQL, Algorithms, and Object-Oriented Programming.",
+      "Data & AI Technologies: Artificial Intelligence, Big Data, and Data Analytics (R).",
+      "Networking & Systems: Advanced Networking, Linux/Unix Administration, TCP/IP, DNS, and HTTP/HTTPS."
+    ],
+    "topicsDe": [
+      "Softwareentwicklung: Java, SQL, Algorithmen und objektorientierte Programmierung.",
+      "Daten- & KI-Technologien: Künstliche Intelligenz, Big Data und Datenanalyse (R).",
+      "Netzwerke & Systeme: Fortgeschrittene Netzwerke, Linux/Unix-Administration, TCP/IP, DNS und HTTP/HTTPS."
+    ]
+  },
+  {
+    "id": "3",
+    "degree": "Bachelor of Computer Applications (BCA)",
+    "institution": "Saurashtra University",
+    "period": "Jun 2013 – May 2016",
+    "detailKey": "education_bca_detail",
+    "topics": [
+      "Software Development: C/C++, Java/J2EE, C#, ASP.NET, PHP, SQL/Oracle, and Web Development.",
+      "Networking & Systems: LAN/WAN, OSI & TCP/IP Models, UNIX/Linux Administration, and Internet Protocols.",
+      "Database & Web Technologies: SQL, Oracle, and Full-Stack Web Development."
+    ],
+    "topicsDe": [
+      "Softwareentwicklung: C/C++, Java/J2EE, C#, ASP.NET, PHP, SQL/Oracle und Webentwicklung.",
+      "Netzwerke & Systeme: LAN/WAN, OSI- & TCP/IP-Modelle, UNIX/Linux-Administration und Internetprotokolle.",
+      "Datenbank- & Webtechnologien: SQL, Oracle und Full-Stack-Webentwicklung."
+    ]
+  }
+]

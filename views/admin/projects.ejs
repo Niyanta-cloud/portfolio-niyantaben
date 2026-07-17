@@ -1,0 +1,26 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Projects</h2>
+  <a href="/admin/projects/add" class="btn btn-primary" style="margin-bottom:16px">+ Add Project</a>
+  <div class="card">
+    <table>
+      <thead><tr><th>Name</th><th>Technologies</th><th>Actions</th></tr></thead>
+      <tbody>
+        <% (items || []).forEach(p => { %>
+          <tr>
+            <td><%= p.name %></td>
+            <td><%= (p.technologies || []).join(', ') %></td>
+            <td>
+              <a href="/admin/projects/edit/<%= p.id %>" class="btn btn-sm btn-warning">Edit</a>
+              <form action="/admin/projects/delete/<%= p.id %>" method="POST" style="display:inline" onsubmit="return confirm('Delete?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

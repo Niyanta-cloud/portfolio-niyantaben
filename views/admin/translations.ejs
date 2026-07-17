@@ -1,0 +1,21 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Translations</h2>
+  <p style="margin-bottom:16px;color:var(--medium-gray)">Edit these files directly on the server to add or modify translations.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
+    <% ['en', 'de'].forEach(lang => { %>
+      <div class="card">
+        <h3 style="margin-bottom:12px"><%= lang.toUpperCase() %></h3>
+        <form action="/admin/translations" method="POST">
+          <input type="hidden" name="lang" value="<%= lang %>">
+          <div class="form-group">
+            <textarea name="content" rows="20" style="font-family:monospace;font-size:0.8rem"><%= JSON.stringify(locales[lang] || {}, null, 2) %></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save <%= lang.toUpperCase() %></button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+</div>
+</body>
+</html>

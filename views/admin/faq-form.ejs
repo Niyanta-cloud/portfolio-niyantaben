@@ -1,0 +1,20 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2><%= isEdit ? 'Edit' : 'Add' %> FAQ</h2>
+  <div class="card">
+    <form action="/admin/faq/<%= isEdit ? 'edit/' + item.id : 'add' %>" method="POST">
+      <div class="form-group">
+        <label>Question Key (e.g. faq_q7)</label>
+        <input type="text" name="questionKey" value="<%= item ? item.questionKey : '' %>" required>
+      </div>
+      <div class="form-group">
+        <label>Answer Key (e.g. faq_a7)</label>
+        <input type="text" name="answerKey" value="<%= item ? item.answerKey : '' %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/admin/faq" class="btn" style="background:var(--border)">Cancel</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Certifications</h2>
+  <a href="/admin/certifications/add" class="btn btn-primary" style="margin-bottom:16px">+ Add Certification</a>
+  <div class="card">
+    <table>
+      <thead><tr><th>Title</th><th>Organization</th><th>Date</th><th>File</th><th>Actions</th></tr></thead>
+      <tbody>
+        <% (items || []).forEach(c => { %>
+          <tr>
+            <td><%= c.title %></td>
+            <td><%= c.organization %></td>
+            <td><%= c.issueDate %></td>
+            <td><%= c.file ? 'Yes' : 'No' %></td>
+            <td>
+              <a href="/admin/certifications/edit/<%= c.id %>" class="btn btn-sm btn-warning">Edit</a>
+              <form action="/admin/certifications/delete/<%= c.id %>" method="POST" style="display:inline" onsubmit="return confirm('Delete?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Edit Profile</h2>
+  <div class="card">
+    <form action="/admin/profile" method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" value="<%= profile.name %>" required>
+        </div>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" name="title" value="<%= profile.title %>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tagline (EN)</label>
+        <input type="text" name="tagline" value="<%= profile.tagline %>">
+      </div>
+      <div class="form-group">
+        <label>Tagline (DE)</label>
+        <input type="text" name="taglineDe" value="<%= profile.taglineDe || '' %>">
+      </div>
+      <div class="form-group">
+        <label>Intro</label>
+        <textarea name="intro"><%= profile.intro %></textarea>
+      </div>
+      <div class="form-group">
+        <label>Profile Photo</label>
+        <input type="file" name="photo" accept="image/*">
+        <% if (profile.photo) { %><p style="font-size:0.85rem;margin-top:4px">Current: <a href="<%= profile.photo %>" target="_blank">View</a></p><% } %>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Profile</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

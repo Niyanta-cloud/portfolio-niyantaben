@@ -1,0 +1,26 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Technical Skills</h2>
+  <div class="card">
+    <form action="/admin/skills" method="POST">
+      <div class="form-group">
+        <label>Skills (one per line)</label>
+        <textarea name="skills" rows="12"><%= (items || []).join('\n') %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Skills</button>
+    </form>
+  </div>
+
+  <h2>Soft Skills</h2>
+  <div class="card">
+    <form action="/admin/soft-skills" method="POST">
+      <div class="form-group">
+        <label>Soft Skills (one per line)</label>
+        <textarea name="skills" rows="8"><%= (softItems || []).join('\n') %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Soft Skills</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

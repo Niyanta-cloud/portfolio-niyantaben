@@ -1,0 +1,27 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Experience</h2>
+  <a href="/admin/experience/add" class="btn btn-primary" style="margin-bottom:16px">+ Add Experience</a>
+  <div class="card">
+    <table>
+      <thead><tr><th>Company</th><th>Position</th><th>Period</th><th>Actions</th></tr></thead>
+      <tbody>
+        <% (items || []).forEach(e => { %>
+          <tr>
+            <td><%= e.company %></td>
+            <td><%= e.position %></td>
+            <td><%= e.period %></td>
+            <td>
+              <a href="/admin/experience/edit/<%= e.id %>" class="btn btn-sm btn-warning">Edit</a>
+              <form action="/admin/experience/delete/<%= e.id %>" method="POST" style="display:inline" onsubmit="return confirm('Delete?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

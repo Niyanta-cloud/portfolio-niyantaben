@@ -1,0 +1,30 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2><%= isEdit ? 'Edit' : 'Add' %> Experience</h2>
+  <div class="card">
+    <form action="/admin/experience/<%= isEdit ? 'edit/' + item.id : 'add' %>" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" name="company" value="<%= item ? item.company : '' %>" required>
+        </div>
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" name="position" value="<%= item ? item.position : '' %>" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Period</label>
+        <input type="text" name="period" value="<%= item ? item.period : '' %>" placeholder="e.g. Jan 2024 - Jun 2024" required>
+      </div>
+      <div class="form-group">
+        <label>Responsibilities</label>
+        <textarea name="responsibilities" required><%= item ? item.responsibilities : '' %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/admin/experience" class="btn" style="background:var(--border)">Cancel</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "intro": "Motivated IT graduate with a strong foundation in Software Development, Cloud Computing, and System Administration. Passionate about building scalable, secure, and reliable cloud solutions using AWS, Azure, and Terraform.",
+  "introDe": "Motivierte IT-Absolventin mit fundierten Kenntnissen in Softwareentwicklung, Cloud Computing und Systemadministration. Leidenschaftlich daran interessiert, skalierbare, sichere und zuverlässige Cloud-Lösungen mit AWS, Azure und Terraform zu entwickeln.",
+  "highlights": [
+    {
+      "icon": "cloud",
+      "title": "Cloud & DevOps",
+      "text": "Hands-on experience in cloud infrastructure, Linux administration, networking, and DevOps practices.",
+      "titleDe": "Cloud & DevOps",
+      "textDe": "Praktische Erfahrung in Cloud-Infrastruktur, Linux-Administration, Netzwerken und DevOps-Praktiken."
+    },
+    {
+      "icon": "code",
+      "title": "Problem Solver",
+      "text": "Skilled in problem-solving, automation, and developing efficient software solutions. Continuously learning modern cloud technologies and industry best practices.",
+      "titleDe": "Problemlöserin",
+      "textDe": "Kompetent in Problemlösung, Automatisierung und Entwicklung effizienter Softwarelösungen. Ständiges Lernen moderner Cloud-Technologien und Branchenstandards."
+    }
+  ],
+  "outro": ""
+}

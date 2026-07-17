@@ -1,0 +1,29 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Dashboard</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:32px">
+    <div class="card" style="text-align:center"><strong><%= educationCount %></strong><br>Education</div>
+    <div class="card" style="text-align:center"><strong><%= certCount %></strong><br>Certifications</div>
+    <div class="card" style="text-align:center"><strong><%= expCount %></strong><br>Experience</div>
+    <div class="card" style="text-align:center"><strong><%= projectCount %></strong><br>Projects</div>
+    <div class="card" style="text-align:center"><strong><%= faqCount %></strong><br>FAQs</div>
+    <div class="card" style="text-align:center"><strong><%= msgCount %></strong><br>Messages</div>
+  </div>
+
+  <h2>Quick Actions</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <a href="/admin/certifications" class="btn btn-primary">Manage Certifications</a>
+    <a href="/admin/projects" class="btn btn-primary">Manage Projects</a>
+    <a href="/admin/experience" class="btn btn-primary">Manage Experience</a>
+    <a href="/admin/education" class="btn btn-primary">Manage Education</a>
+    <a href="/admin/skills" class="btn btn-primary">Manage Skills</a>
+    <a href="/admin/faq" class="btn btn-primary">Manage FAQ</a>
+    <a href="/admin/profile" class="btn btn-primary">Edit Profile</a>
+    <a href="/admin/about" class="btn btn-primary">Edit About</a>
+    <a href="/admin/settings" class="btn btn-primary">Settings</a>
+    <a href="/admin/translations" class="btn btn-primary">Translations</a>
+    <a href="/admin/messages" class="btn btn-primary">Messages (<%= msgCount %>)</a>
+  </div>
+</div>
+</body>
+</html>

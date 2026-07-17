@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "company": "Deutsche Rentenversicherung Nordbayern",
+    "position": "Software Developer",
+    "positionDe": "Softwareentwicklerin",
+    "period": "Jul 2025 – Oct 2025",
+    "responsibilities": "Supported IT operations through data pipeline monitoring, COBOL program debugging, and efficient issue resolution while ensuring data accuracy and compliance.\nContributed to legacy system modernization using Java, JavaScript, HTML, CSS, and SQL technologies.",
+    "responsibilitiesDe": "Unterstützung des IT-Betriebs durch Überwachung von Datenpipelines, Debugging von COBOL-Programmen und effiziente Problemlösung bei gleichzeitiger Sicherstellung von Datengenauigkeit und Compliance.\nBeitrag zur Modernisierung von Legacy-Systemen mit Java, JavaScript, HTML, CSS und SQL."
+  },
+  {
+    "id": "2",
+    "company": "Yogiji Maharaj Mahavidhyalay",
+    "position": "Professor / Lecturer",
+    "positionDe": "Professorin / Dozentin",
+    "period": "Aug 2018 – May 2021",
+    "responsibilities": "Taught BCA students Networking, Programming, Databases, Web Development, and Cybersecurity, including LAN/WAN, OSI model, protocols, cloud networking, and virtualization.\nTrained and mentored students in C, C++, Java, Data Structures, SQL, Java EE, Android Development, and Full-Stack Web Technologies.",
+    "responsibilitiesDe": "Unterrichtete BCA-Studierende in Netzwerken, Programmierung, Datenbanken, Webentwicklung und Cybersicherheit, einschließlich LAN/WAN, OSI-Modell, Protokolle, Cloud-Netzwerke und Virtualisierung.\nAusbildung und Betreuung von Studierenden in C, C++, Java, Datenstrukturen, SQL, Java EE, Android-Entwicklung und Full-Stack-Webtechnologien."
+  }
+]

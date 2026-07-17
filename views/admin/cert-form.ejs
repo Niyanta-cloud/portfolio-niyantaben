@@ -1,0 +1,29 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2><%= isEdit ? 'Edit' : 'Add' %> Certification</h2>
+  <div class="card">
+    <form action="/admin/certifications/<%= isEdit ? 'edit/' + item.id : 'add' %>" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" value="<%= item ? item.title : '' %>" required>
+      </div>
+      <div class="form-group">
+        <label>Organization</label>
+        <input type="text" name="organization" value="<%= item ? item.organization : '' %>" required>
+      </div>
+      <div class="form-group">
+        <label>Issue Date</label>
+        <input type="text" name="issueDate" value="<%= item ? item.issueDate : '' %>" placeholder="e.g. June 2024">
+      </div>
+      <div class="form-group">
+        <label>Certificate File (image)</label>
+        <input type="file" name="file" accept="image/*">
+        <% if (isEdit && item.file) { %><p style="font-size:0.85rem;margin-top:4px">Current: <a href="<%= item.file %>" target="_blank"><%= item.file %></a></p><% } %>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/admin/certifications" class="btn" style="background:var(--border)">Cancel</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+  { "language": "Deutsch", "level": "B2", "levelLabel": "B2" },
+  { "language": "Englisch", "level": "C1", "levelLabel": "C1" },
+  { "language": "Gujarati", "level": "Muttersprache", "levelLabel": "Native" },
+  { "language": "Hindi", "level": "Muttersprache", "levelLabel": "Native" },
+  { "language": "Sanskrit", "level": "Lesekenntnisse", "levelLabel": "Reading" }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "name": "Serverless URL Shortener",
+    "description": "Short-link service built on Lambda, API Gateway, and DynamoDB with a React frontend deployed via CloudFront.",
+    "technologies": [
+      "AWS Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "React"
+    ],
+    "github": "",
+    "demo": "",
+    "screenshot": ""
+  },
+  {
+    "id": "2",
+    "name": "Infra Home Lab",
+    "description": "Multi-node Kubernetes cluster on Raspberry Pi managed with Ansible, with Prometheus and Grafana monitoring.",
+    "technologies": [
+      "Kubernetes",
+      "Ansible",
+      "Prometheus",
+      "Grafana"
+    ],
+    "github": "",
+    "demo": "",
+    "screenshot": ""
+  },
+  {
+    "id": "3",
+    "name": "Terraform AWS Landing Zone",
+    "description": "Modular Terraform codebase for multi-account AWS organization with VPCs, IAM roles, and S3 logging.",
+    "technologies": [
+      "Terraform",
+      "AWS",
+      "GitHub Actions",
+      "S3"
+    ],
+    "github": "",
+    "demo": "",
+    "screenshot": ""
+  }
+]

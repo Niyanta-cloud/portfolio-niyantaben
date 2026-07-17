@@ -1,0 +1,27 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Education</h2>
+  <a href="/admin/education/add" class="btn btn-primary" style="margin-bottom:16px">+ Add Education</a>
+  <div class="card">
+    <table>
+      <thead><tr><th>Degree</th><th>Institution</th><th>Period</th><th>Actions</th></tr></thead>
+      <tbody>
+        <% (items || []).forEach(e => { %>
+          <tr>
+            <td><%= e.degree %></td>
+            <td><%= e.institution %></td>
+            <td><%= e.period %></td>
+            <td>
+              <a href="/admin/education/edit/<%= e.id %>" class="btn btn-sm btn-warning">Edit</a>
+              <form action="/admin/education/delete/<%= e.id %>" method="POST" style="display:inline" onsubmit="return confirm('Delete?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

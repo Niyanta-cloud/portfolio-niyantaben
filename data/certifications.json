@@ -1,0 +1,48 @@
+[
+  {
+    "id": "1",
+    "title": "AWS Skill Builder",
+    "organization": "Amazon Web Services",
+    "issueDate": ""
+  },
+  {
+    "id": "2",
+    "title": "Netzwerkgrundlagen",
+    "titleDe": "Netzwerkgrundlagen",
+    "organization": "Cisco Networking Academy",
+    "issueDate": ""
+  },
+  {
+    "id": "3",
+    "title": "KI- und Automatisierungsclub – Projektentwickler",
+    "titleDe": "KI- und Automatisierungsclub – Projektentwicklerin",
+    "organization": "Digital Career Institute (DCI)",
+    "issueDate": ""
+  },
+  {
+    "id": "4",
+    "title": "JavaScript, Linux, COBOL, Git",
+    "organization": "Deutsche Rentenversicherung",
+    "issueDate": ""
+  },
+  {
+    "id": "5",
+    "title": "System Administration",
+    "titleDe": "Systemadministration",
+    "organization": "Digital Career Institute (DCI)",
+    "issueDate": ""
+  },
+  {
+    "id": "6",
+    "title": "AWS Architecture",
+    "titleDe": "AWS-Architektur",
+    "organization": "Digital Career Institute (DCI)",
+    "issueDate": ""
+  },
+  {
+    "id": "7",
+    "title": "Terraform (IaC)",
+    "organization": "Digital Career Institute (DCI)",
+    "issueDate": ""
+  }
+]

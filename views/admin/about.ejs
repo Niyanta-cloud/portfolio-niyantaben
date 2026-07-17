@@ -1,0 +1,33 @@
+<%- include('../partials/admin-header') %>
+<div class="admin-main">
+  <h2>Edit About Section</h2>
+  <div class="card">
+    <form action="/admin/about" method="POST">
+      <div class="form-group">
+        <label>Intro Paragraph</label>
+        <textarea name="intro" rows="3"><%= about.intro %></textarea>
+      </div>
+      <h3 style="margin:20px 0 10px;font-size:1rem">Highlights</h3>
+      <% for (let i = 0; i < 4; i++) { %>
+        <div style="background:var(--light-gray);padding:14px;border-radius:8px;margin-bottom:12px">
+          <p style="font-size:0.8rem;font-weight:600;margin-bottom:6px;color:var(--medium-gray)">Highlight <%= i+1 %> &mdash; <i class="fas fa-<%=(about.highlights[i] && about.highlights[i].icon) || 'circle'%>"></i></p>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="highlightTitle" value="<%= about.highlights[i] ? about.highlights[i].title : '' %>">
+          </div>
+          <div class="form-group">
+            <label>Text</label>
+            <textarea name="highlightText" rows="2"><%= about.highlights[i] ? about.highlights[i].text : '' %></textarea>
+          </div>
+        </div>
+      <% } %>
+      <div class="form-group">
+        <label>Outro Tagline</label>
+        <input type="text" name="outro" value="<%= about.outro %>">
+      </div>
+      <button type="submit" class="btn btn-primary">Save About</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

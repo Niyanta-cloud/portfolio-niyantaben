@@ -1,0 +1,378 @@
+<%- include('partials/header') %>
+
+<main>
+  <!-- Home / Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1><%= profile.name %></h1>
+          <div class="title"><span class="blink-title"><%= t('home_title') %></span></div>
+          <div class="tagline"><%= l(profile, 'tagline') %></div>
+          <div class="hero-buttons">
+            <a href="#resume" class="btn btn-primary"><%= t('home_download_cv') %></a>
+            <a href="#contact" class="btn btn-outline"><%= t('home_contact_me') %></a>
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <div class="hero-blur-bg"></div>
+          <svg viewBox="0 0 340 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;position:relative;z-index:1">
+            <!-- Cloud shape -->
+            <path d="M80 110 Q70 80 100 70 Q110 45 140 50 Q160 30 190 40 Q210 25 235 40 Q260 30 275 50 Q300 55 295 80 Q315 90 310 110 Z" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+            <!-- Cloud inner highlight -->
+            <path d="M120 90 Q125 70 145 72 Q160 55 180 60 Q195 50 210 58 Q225 52 235 62 Q250 65 245 80 Q255 88 250 95 Z" fill="rgba(255,255,255,0.08)"/>
+            <!-- Server rack left -->
+            <rect x="25" y="130" width="60" height="120" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <rect x="32" y="138" width="16" height="12" rx="2" fill="rgba(100,180,255,0.5)"/>
+            <rect x="56" y="138" width="20" height="12" rx="2" fill="rgba(100,180,255,0.3)"/>
+            <rect x="32" y="158" width="16" height="12" rx="2" fill="rgba(100,180,255,0.4)"/>
+            <rect x="56" y="158" width="20" height="12" rx="2" fill="rgba(100,180,255,0.3)"/>
+            <rect x="32" y="178" width="16" height="12" rx="2" fill="rgba(100,180,255,0.35)"/>
+            <rect x="56" y="178" width="20" height="12" rx="2" fill="rgba(100,180,255,0.25)"/>
+            <rect x="32" y="198" width="16" height="12" rx="2" fill="rgba(100,180,255,0.3)"/>
+            <rect x="56" y="198" width="20" height="12" rx="2" fill="rgba(100,180,255,0.2)"/>
+            <rect x="32" y="218" width="16" height="12" rx="2" fill="rgba(100,180,255,0.25)"/>
+            <rect x="56" y="218" width="20" height="12" rx="2" fill="rgba(100,180,255,0.2)"/>
+            <!-- Database cylinder -->
+            <ellipse cx="200" cy="140" rx="30" ry="8" fill="rgba(100,180,255,0.3)" stroke="rgba(100,180,255,0.5)" stroke-width="1"/>
+            <rect x="170" y="140" width="60" height="40" fill="rgba(100,180,255,0.15)"/>
+            <ellipse cx="200" cy="180" rx="30" ry="8" fill="rgba(100,180,255,0.3)" stroke="rgba(100,180,255,0.5)" stroke-width="1"/>
+            <ellipse cx="200" cy="140" rx="30" ry="8" fill="rgba(100,180,255,0.3)"/>
+            <!-- Database lines -->
+            <line x1="175" y1="150" x2="225" y2="150" stroke="rgba(100,180,255,0.3)" stroke-width="1"/>
+            <line x1="175" y1="160" x2="225" y2="160" stroke="rgba(100,180,255,0.3)" stroke-width="1"/>
+            <line x1="175" y1="170" x2="225" y2="170" stroke="rgba(100,180,255,0.3)" stroke-width="1"/>
+            <!-- Kubernetes-style hexagon (container) -->
+            <polygon points="270,120 300,135 300,165 270,180 240,165 240,135" fill="rgba(100,180,255,0.15)" stroke="rgba(100,180,255,0.5)" stroke-width="1.5"/>
+            <circle cx="270" cy="150" r="12" fill="rgba(100,180,255,0.25)" stroke="rgba(100,180,255,0.4)" stroke-width="1"/>
+            <circle cx="270" cy="150" r="5" fill="rgba(100,180,255,0.5)"/>
+            <!-- Second hexagon (smaller) -->
+            <polygon points="310,145 330,155 330,175 310,185 290,175 290,155" fill="rgba(100,180,255,0.1)" stroke="rgba(100,180,255,0.35)" stroke-width="1"/>
+            <circle cx="310" cy="165" r="6" fill="rgba(100,180,255,0.2)"/>
+            <!-- Connection lines -->
+            <line x1="85" y1="150" x2="170" y2="145" stroke="rgba(100,180,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="230" y1="155" x2="240" y2="145" stroke="rgba(100,180,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="270" y1="180" x2="270" y2="220" stroke="rgba(100,180,255,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="200" y1="180" x2="200" y2="220" stroke="rgba(100,180,255,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <!-- Bottom server rack right -->
+            <rect x="250" y="210" width="80" height="40" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <rect x="258" y="218" width="14" height="10" rx="1" fill="rgba(100,180,255,0.4)"/>
+            <rect x="280" y="218" width="14" height="10" rx="1" fill="rgba(100,180,255,0.3)"/>
+            <rect x="302" y="218" width="14" height="10" rx="1" fill="rgba(100,180,255,0.25)"/>
+            <!-- Data flow arrows -->
+            <polygon points="140,100 148,108 140,116" fill="rgba(100,180,255,0.25)"/>
+            <polygon points="240,108 248,100 248,116" fill="rgba(100,180,255,0.2)"/>
+            <!-- Small cloud nodes -->
+            <circle cx="45" cy="75" r="6" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="55" cy="70" r="4" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="50" cy="82" r="3" fill="rgba(255,255,255,0.1)"/>
+            <!-- Gear icon placeholder -->
+            <circle cx="160" cy="230" r="12" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+            <circle cx="160" cy="230" r="4" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+              <circle cx="28" cy="10" r="8" fill="rgba(100,180,255,0.25)"/>
+            </g>
+            <g transform="translate(210,110)">
+              <rect x="0" y="6" width="34" height="20" rx="10" fill="rgba(100,180,255,0.35)" stroke="rgba(100,180,255,0.5)" stroke-width="1"/>
+              <circle cx="12" cy="6" r="9" fill="rgba(100,180,255,0.3)"/>
+              <circle cx="24" cy="8" r="7" fill="rgba(100,180,255,0.2)"/>
+            </g>
+            <g transform="translate(280,80)">
+              <rect x="0" y="0" width="16" height="16" rx="3" fill="rgba(100,180,255,0.3)"/>
+              <circle cx="8" cy="8" r="3" fill="rgba(255,255,255,0.35)"/>
+            </g>
+            <g transform="translate(55,85)">
+              <rect x="0" y="0" width="16" height="16" rx="3" fill="rgba(100,180,255,0.3)"/>
+              <circle cx="8" cy="8" r="3" fill="rgba(255,255,255,0.35)"/>
+            </g>
+            <path d="M90,130 Q120,110 140,130" stroke="rgba(100,180,255,0.2)" stroke-width="1" fill="none"/>
+            <path d="M180,140 Q200,120 220,140" stroke="rgba(100,180,255,0.18)" stroke-width="1" fill="none"/>
+            <rect x="0" y="255" width="340" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2><%= t('about_title') %></h2>
+      <div class="about-content">
+        <p style="font-size:1.05rem;line-height:1.8;margin-bottom:28px;color:var(--text)"><%= lang === 'de' && about.introDe ? about.introDe : about.intro %></p>
+        <div class="about-highlights">
+          <% about.highlights.forEach(function(h) { %>
+          <div class="highlight-item">
+            <div class="highlight-icon"><i class="fas fa-<%= h.icon %>"></i></div>
+            <div class="highlight-text">
+              <strong><%= lang === 'de' && h.titleDe ? h.titleDe : h.title %></strong>
+              <span><%= lang === 'de' && h.textDe ? h.textDe : h.text %></span>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <% if (about.outro) { %><p style="text-align:center;font-weight:600;font-size:1rem;margin-top:28px;color:var(--accent)"><%= about.outro %></p><% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2><%= t('experience_title') %></h2>
+      <div class="timeline">
+        <% experience.forEach(exp => { %>
+          <div class="timeline-item">
+            <h3><%= l(exp, 'position') %></h3>
+            <div class="meta"><span class="company"><%= exp.company %></span> &middot; <span class="period"><%= exp.period %></span></div>
+            <% var respText = lang === 'de' && exp.responsibilitiesDe ? exp.responsibilitiesDe : exp.responsibilities; %>
+            <% var lines = (respText || '').split('\n').filter(l => l.trim()); %>
+            <% if (lines.length > 1) { %>
+              <ul class="exp-list">
+                <% lines.forEach(function(line) { %><li><%= line.trim() %></li><% }) %>
+              </ul>
+            <% } else { %>
+              <p><%= exp.responsibilities %></p>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2><%= t('education_title') %></h2>
+      <div class="timeline">
+        <% education.forEach(edu => { %>
+          <div class="timeline-item">
+            <h3><%= l(edu, 'degree') %></h3>
+            <div class="meta"><%= edu.institution %> &middot; <%= edu.period %></div>
+            <% if (edu.topics) { %>
+              <ul class="edu-topics">
+                <% var topicList = lang === 'de' && edu.topicsDe ? edu.topicsDe : edu.topics; %>
+                <% topicList.forEach(topic => { %>
+                  <li><%- topic.replace(/Terraform/g, '<span class="blink-terraform">Terraform</span>') %></li>
+                <% }) %>
+              </ul>
+            <% } else { %>
+              <p><%= t(edu.detailKey || '') %></p>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2><%= t('skills_title') %></h2>
+      <div class="skills-professional">
+        <% var techIcons = { 'AWS':'fab fa-aws','Azure':'fab fa-microsoft','Terraform':'fas fa-cloud','HCL':'fas fa-code','Networking':'fas fa-network-wired','Linux':'fab fa-linux','Docker':'fab fa-docker','Kubernetes':'fas fa-server','CI/CD':'fas fa-arrows-rotate','Git/GitHub':'fab fa-github','GitHub Actions':'fab fa-github','Prometheus':'fas fa-chart-line','Grafana':'fas fa-chart-area','C':'fas fa-code','C++':'fas fa-code','COBOL':'fas fa-code','Java':'fab fa-java','J2EE':'fas fa-code','Python':'fab fa-python','PHP':'fab fa-php','.NET':'fab fa-windows','SQL':'fas fa-database','NoSQL':'fas fa-database','Oracle':'fas fa-database','MongoDB':'fas fa-leaf' }; %>
+        <div class="skill-category">
+          <div class="skill-cat-header"><i class="fas fa-cloud"></i> Cloud & Infrastructure</div>
+          <div class="skill-items">
+            <% ['AWS', 'Azure', 'Terraform', 'HCL', 'Networking'].forEach(s => { %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+            <% }) %>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-header"><i class="fas fa-cogs"></i> DevOps & Tools</div>
+          <div class="skill-items">
+            <% ['Docker', 'Kubernetes', 'CI/CD', 'Git/GitHub', 'Linux', 'Prometheus', 'Grafana', 'GitHub Actions'].forEach(s => { %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+            <% }) %>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-header"><i class="fas fa-code"></i> Programming Languages</div>
+          <div class="skill-items">
+            <% ['C', 'C++', 'COBOL', 'Java', 'J2EE', 'Python', 'PHP', '.NET'].forEach(s => { %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+            <% }) %>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-header"><i class="fas fa-database"></i> Databases</div>
+          <div class="skill-items">
+            <% ['SQL', 'NoSQL', 'Oracle', 'MongoDB'].forEach(s => { %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <h3 style="font-size:1.1rem;font-weight:600;margin:40px 0 20px;color:var(--text)"><%= t('soft_skills_title') %></h3>
+      <div class="soft-skills-grid">
+        <% var skillIcons = { 'Communication':'fa-comments','Leadership':'fa-users','Teamwork':'fa-handshake','Problem Solving':'fa-puzzle-piece','Critical Thinking':'fa-brain','Time Management':'fa-clock','Creativity':'fa-lightbulb','Adaptability':'fa-arrows-spin','Collaboration':'fa-people-group','Decision Making':'fa-scale-balanced','Emotional Intelligence':'fa-heart','Conflict Resolution':'fa-handshake-simple','Motivation':'fa-rocket','Flexibility':'fa-arrows-rotate','Work Ethic':'fa-briefcase','Attention to Detail':'fa-magnifying-glass','Stress Management':'fa-spa','Self Discipline':'fa-bullseye','Active Listening':'fa-ear-listen','Public Speaking':'fa-microphone' }; %>
+        <% softSkills.forEach(s => { %>
+          <div class="soft-skill-card">
+            <i class="fas <%= skillIcons[s] || 'fa-star' %>"></i>
+            <span><%= s %></span>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="container">
+      <h2><%= t('certifications_title') %></h2>
+      <% if (certifications.length === 0) { %>
+        <p style="color:var(--medium-gray)">No certifications added yet.</p>
+      <% } else { %>
+        <div class="cert-grid">
+          <% var certIcons = { 'AWS':'fab fa-aws','Netzwerkgrundlagen':'fas fa-network-wired','KI':'fas fa-brain','JavaScript':'fab fa-js','Linux':'fab fa-linux','COBOL':'fas fa-code','Git':'fab fa-git-alt','System Administration':'fas fa-terminal','Systemadministration':'fas fa-terminal','AWS Architecture':'fas fa-sitemap','AWS-Architektur':'fas fa-sitemap','Terraform':'fas fa-cloud'}; %>
+          <% certifications.forEach(cert => { %>
+            <div class="cert-card">
+              <% var icon = 'fas fa-certificate'; %>
+              <% var sorted = Object.keys(certIcons).sort((a,b) => b.length - a.length); %>
+              <% sorted.forEach(function(k) { if (l(cert, 'title').includes(k)) icon = certIcons[k]; }); %>
+              <div class="cert-icon"><i class="<%= icon %>"></i></div>
+              <h3><%= l(cert, 'title') %></h3>
+              <div class="org"><%= cert.organization %></div>
+              <div class="date"><%= cert.issueDate %></div>
+              <% if (cert.file) { %>
+                <img class="cert-preview" src="<%= cert.file %>" alt="<%= cert.title %>" data-src="<%= cert.file %>">
+                <p style="font-size:0.75rem;color:var(--medium-gray);margin-top:6px;"><%= t('cert_no_download') %></p>
+              <% } else { %>
+                <div class="cert-no-img" data-src=""><%= t('cert_view') %></div>
+              <% } %>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2><%= t('projects_title') %></h2>
+      <% if (projects.length === 0) { %>
+        <p style="color:var(--medium-gray)">No projects added yet.</p>
+      <% } else { %>
+        <div class="project-grid">
+          <% projects.forEach(proj => { %>
+            <div class="project-card">
+              <% if (proj.screenshot) { %><img src="<%= proj.screenshot %>" alt="<%= proj.name %>"><% } %>
+              <div class="body">
+                <h3><%= proj.name %></h3>
+                <p><%= proj.description %></p>
+                <div class="tech">
+                  <% (proj.technologies || []).forEach(t => { %><span><%= t %></span><% }) %>
+                </div>
+                <div class="links">
+                  <% if (proj.github) { %><a href="<%= proj.github %>" target="_blank"><i class="fab fa-github"></i> <%= t('project_github') %></a><% } %>
+                  <% if (proj.demo) { %><a href="<%= proj.demo %>" target="_blank"><i class="fas fa-external-link-alt"></i> <%= t('project_demo') %></a><% } %>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <div class="container">
+      <h2><%= t('resume_title') %></h2>
+      <div class="resume-section">
+        <div class="resume-actions">
+          <select class="resume-lang-select" id="resumeLang" onchange="updateResume()">
+            <option value="en">English</option>
+            <option value="de">German</option>
+          </select>
+          <a href="javascript:void(0)" class="btn btn-primary" onclick="viewResume()"><i class="fas fa-eye"></i> <%= t('resume_view') %></a>
+          <a id="resumeDownload" href="<%= resumeEn %>" download class="btn btn-outline"><i class="fas fa-download"></i> <%= t('resume_download') %></a>
+        </div>
+        <div class="resume-preview" id="resumeView" style="display:none">
+          <embed id="resumeEmbed" src="<%= resumeEn %>" type="application/pdf">
+        </div>
+        <% if (!resumeEn && !resumeDe) { %>
+          <p style="color:var(--medium-gray);margin-top:16px;"><%= t('resume_no_file') %></p>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section id="languages">
+    <div class="container">
+      <h2><%= t('languages_title') %></h2>
+      <div class="languages-grid">
+        <% (languages || []).forEach(l => { %>
+        <div class="lang-card">
+          <div class="lang-name"><%= l.language %></div>
+          <div class="lang-level-bar">
+            <div class="lang-level-fill" style="width:<%= ['Native','Muttersprache'].includes(l.level) || ['Native','Muttersprache'].includes(l.levelLabel) ? '100' : l.level === 'C1' || l.levelLabel === 'C1' ? '90' : l.level === 'B2' || l.levelLabel === 'B2' ? '70' : l.level === 'Lesekenntnisse' || l.levelLabel === 'Reading' ? '40' : '50' %>%"></div>
+          </div>
+          <div class="lang-level-label"><%= l.levelLabel || l.level %></div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2><%= t('faq_title') %></h2>
+      <div class="faq-list">
+        <% faq.forEach((item, i) => { %>
+          <div class="faq-item">
+            <div class="faq-question"><%= t(item.questionKey) %></div>
+            <div class="faq-answer"><%= t(item.answerKey) %></div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2><%= t('contact_title') %></h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3><%= t('contact_details') %></h3>
+          <% if (settings.email) { %><p><i class="fas fa-envelope"></i> <a href="mailto:<%= settings.email %>"><%= settings.email %></a></p><% } %>
+          <% if (settings.phone) { %><p><i class="fas fa-phone"></i> <%= settings.phone %></p><% } %>
+          <% if (settings.location) { %><p><i class="fas fa-map-marker-alt"></i> <%= settings.location %></p><% } %>
+          <div class="social-links">
+            <% if (settings.social && settings.social.github) { %><a href="<%= settings.social.github %>" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a><% } %>
+            <% if (settings.social && settings.social.linkedin) { %><a href="<%= settings.social.linkedin %>" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><% } %>
+            <% if (settings.social && settings.social.twitter) { %><a href="<%= settings.social.twitter %>" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a><% } %>
+            <% if (settings.social && settings.social.xing) { %><a href="<%= settings.social.xing %>" target="_blank" aria-label="Xing"><i class="fab fa-xing"></i></a><% } %>
+            <% if (settings.email) { %><a href="mailto:<%= settings.email %>" aria-label="Email"><i class="fas fa-envelope"></i></a><% } %>
+          </div>
+        </div>
+        <div>
+          <h3><%= t('contact_form') %></h3>
+          <form class="contact-form" id="contactForm" action="/contact" method="POST" enctype="multipart/form-data">
+            <div class="form-msg" id="formMsg"></div>
+            <label for="name"><%= t('contact_name') %> <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+            <label for="email"><%= t('contact_email') %> <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+            <label for="subject"><%= t('contact_subject') %> <span class="required">*</span></label>
+            <input type="text" id="subject" name="subject" required>
+            <label for="message"><%= t('contact_message') %> <span class="required">*</span></label>
+            <textarea id="message" name="message" required></textarea>
+            <label for="attachment"><i class="fas fa-paperclip"></i> Attach File (optional)</label>
+            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg">
+            <button type="submit" class="btn btn-primary"><%= t('contact_send') %></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
