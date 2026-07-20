@@ -451,8 +451,12 @@ app.use((req, res) => {
 });
 
 // --- Start ---
-app.listen(PORT, () => {
-  console.log(`Portfolio server running at http://localhost:${PORT}`);
-  console.log(`Admin panel: http://localhost:${PORT}/admin/login`);
-  console.log(`Admin credentials: admin / admin123`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Portfolio server running at http://localhost:${PORT}`);
+    console.log(`Admin panel: http://localhost:${PORT}/admin/login`);
+    console.log(`Admin credentials: admin / admin123`);
+  });
+}
+
+module.exports = app;
