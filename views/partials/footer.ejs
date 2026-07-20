@@ -7,7 +7,7 @@
           <% if (settings.social && settings.social.github) { %><a href="<%= settings.social.github %>" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a><% } %>
           <% if (settings.social && settings.social.linkedin) { %><a href="<%= settings.social.linkedin %>" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><% } %>
           <% if (settings.social && settings.social.xing) { %><a href="<%= settings.social.xing %>" target="_blank" aria-label="Xing"><i class="fab fa-xing"></i></a><% } %>
-          <% if (settings.email) { %><a href="mailto:<%= settings.email %>" aria-label="Email"><i class="fas fa-envelope"></i></a><% } %>
+          <% if (settings.email) { %><a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a><% } %>
         </div>
       </div>
       <div>
@@ -23,7 +23,7 @@
       <div>
         <h4><%= t('footer_contact_info') %></h4>
         <ul>
-          <% if (settings.email) { %><li><a href="mailto:<%= settings.email %>"><%= settings.email %></a></li><% } %>
+          <% if (settings.email) { %><li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank"><%= settings.email %></a></li><% } %>
           <% if (settings.phone) { %><li><%= settings.phone %></li><% } %>
           <% if (settings.location) { %><li><%= settings.location %></li><% } %>
         </ul>
