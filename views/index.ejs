@@ -7,8 +7,10 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1><%= profile.name %></h1>
-          <div class="title"><span class="blink-title"><%= t('home_title') %></span></div>
+          <div class="hero-subtitle"><%= l(profile, 'subtitle') %></div>
+          <div class="hero-desc"><%= l(profile, 'desc') %></div>
           <div class="tagline"><%= l(profile, 'tagline') %></div>
+          <div class="hero-tech"><strong><%= profile.tech %></strong></div>
           <div class="hero-buttons">
             <a href="#resume" class="btn btn-primary"><%= t('home_download_cv') %></a>
             <a href="#contact" class="btn btn-outline"><%= t('home_contact_me') %></a>

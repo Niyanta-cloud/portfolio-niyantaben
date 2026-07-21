@@ -173,6 +173,11 @@ img { max-width: 100%; height: auto; }
 .hero-text { flex: 1; min-width: 280px; }
 .hero-text h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; }
 .hero-text .title { font-size: 1.25rem; color: rgba(255,255,255,0.65); font-weight: 400; margin-top: 12px; letter-spacing: 0.3px; }
+.hero-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.75); font-weight: 500; margin-top: 10px; }
+.hero-desc { font-size: 1rem; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.6; }
+.hero-tech { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 10px; }
+.hero-tech strong { color: rgba(255,255,255,0.75); }
+[data-theme="dark"] .hero-subtitle { color: rgba(255,255,255,0.8); }
 .hero-text .tagline { font-size: 1.05rem; color: rgba(255,255,255,0.55); margin-top: 10px; max-width: 520px; line-height: 1.7; }
 .hero-buttons { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
 .btn {
