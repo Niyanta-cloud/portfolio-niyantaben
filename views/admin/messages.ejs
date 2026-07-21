@@ -15,7 +15,7 @@
               <td><%= m.email %></td>
               <td><%= m.subject %></td>
               <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis"><%= m.message %></td>
-              <td><% if (m.attachment) { %><a href="<%= m.attachment %>" target="_blank"><i class="fas fa-paperclip"></i></a><% } %></td>
+              <td><% if (m.attachment) { %><a href="<%= m.attachment %>" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none"><i class="fas fa-download"></i> Download</a><% } %></td>
               <td>
                 <form action="/admin/messages/delete/<%= m.id %>" method="POST" style="display:inline" onsubmit="return confirm('Delete?')">
                   <button class="btn btn-sm btn-danger">Delete</button>
