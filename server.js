@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const db = require('./database');
 
 const app = express();
@@ -118,6 +119,36 @@ app.post('/contact', upload.single('attachment'), (req, res) => {
   }
   const attachment = req.file ? '/uploads/attachments/' + req.file.filename : '';
   db.addMessage({ name, email, subject, message, attachment });
+  // Send email notification
+  try {
+    const settings = db.getSettings();
+    if (settings.smtpHost && settings.smtpUser && settings.smtpPass && settings.email) {
+      const transporter = nodemailer.createTransport({
+        host: settings.smtpHost,
+        port: settings.smtpPort || 587,
+        secure: false,
+        auth: { user: settings.smtpUser, pass: settings.smtpPass }
+      });
+      const mailOptions = {
+        from: settings.smtpUser,
+        to: settings.email,
+        subject: `Portfolio Message: ${subject}`,
+        html: `<h3>New message from your portfolio</h3>
+<p><strong>Name:</strong> ${name}</p>
+<p><strong>Email:</strong> ${email}</p>
+<p><strong>Subject:</strong> ${subject}</p>
+<p><strong>Message:</strong></p>
+<p>${message}</p>`
+      };
+      if (req.file) {
+        mailOptions.attachments = [{
+          filename: req.file.originalname,
+          path: req.file.path
+        }];
+      }
+      transporter.sendMail(mailOptions).catch(() => {});
+    }
+  } catch {}
   res.json({ success: true, message: res.locals.t('contact_success') });
 });
 
@@ -372,7 +403,7 @@ app.get('/admin/settings', requireAdmin, (req, res) => {
 });
 
 app.post('/admin/settings', requireAdmin, upload.fields([{ name: 'resumeEn', maxCount: 1 }, { name: 'resumeDe', maxCount: 1 }]), (req, res) => {
-  const { email, phone, location, github, linkedin, twitter, password } = req.body;
+  const { email, phone, location, github, linkedin, twitter, password, smtpHost, smtpPort, smtpUser, smtpPass } = req.body;
   const current = db.getSettings();
   const data = {
     email: email || current.email,
@@ -385,7 +416,11 @@ app.post('/admin/settings', requireAdmin, upload.fields([{ name: 'resumeEn', max
     },
     adminPassword: current.adminPassword,
     resumeEn: current.resumeEn,
-    resumeDe: current.resumeDe
+    resumeDe: current.resumeDe,
+    smtpHost: smtpHost || current.smtpHost || '',
+    smtpPort: parseInt(smtpPort) || current.smtpPort || 587,
+    smtpUser: smtpUser || current.smtpUser || '',
+    smtpPass: smtpPass || current.smtpPass || ''
   };
   if (password) {
     data.adminPassword = crypto.createHash('sha256').update(password).digest('hex');

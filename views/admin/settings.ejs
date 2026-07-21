@@ -29,6 +29,28 @@
         <label>Twitter URL</label>
         <input type="url" name="twitter" value="<%= (settings.social && settings.social.twitter) || '' %>">
       </div>
+      <h3 style="margin-top:20px">Email Notifications (SMTP)</h3>
+      <p style="font-size:0.85rem;color:var(--medium-gray);margin-bottom:12px">Configure SMTP to receive email notifications when someone sends you a message.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>SMTP Host</label>
+          <input type="text" name="smtpHost" value="<%= settings.smtpHost || '' %>" placeholder="smtp.gmail.com">
+        </div>
+        <div class="form-group">
+          <label>SMTP Port</label>
+          <input type="number" name="smtpPort" value="<%= settings.smtpPort || 587 %>">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>SMTP Username</label>
+          <input type="text" name="smtpUser" value="<%= settings.smtpUser || '' %>">
+        </div>
+        <div class="form-group">
+          <label>SMTP Password</label>
+          <input type="password" name="smtpPass" value="<%= settings.smtpPass || '' %>">
+        </div>
+      </div>
       <h3 style="margin-top:20px">Resume / CV</h3>
       <div class="form-row">
         <div class="form-group">

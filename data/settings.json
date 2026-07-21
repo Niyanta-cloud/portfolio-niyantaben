@@ -7,5 +7,9 @@
     "linkedin": "https://www.linkedin.com/in/niyantaben-patoliya-07007b164/"
   },
   "adminPassword": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
-  "resumeFile": "/uploads/resume/1784148869245-4a027ba9.pdf"
+  "resumeFile": "/uploads/resume/1784148869245-4a027ba9.pdf",
+  "smtpHost": "smtp.gmail.com",
+  "smtpPort": 587,
+  "smtpUser": "",
+  "smtpPass": ""
 }
