@@ -386,13 +386,17 @@ app.get('/admin/profile', requireAdmin, (req, res) => {
   res.render('admin/profile', { profile: db.getProfile() });
 });
 
-app.post('/admin/profile', requireAdmin, upload.single('photo'), (req, res) => {
+app.post('/admin/profile', requireAdmin, upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'heroImage', maxCount: 1 }]), (req, res) => {
   const { name, title, subtitle, subtitleDe, desc, descDe, tagline, taglineDe, tech, intro } = req.body;
   const data = { name, title, subtitle, subtitleDe, desc, descDe, tagline, taglineDe, tech, intro };
-  if (req.file) data.photo = '/images/' + req.file.filename;
-  // Preserve photo if not changed
+  if (req.files) {
+    if (req.files.photo) data.photo = '/images/' + req.files.photo[0].filename;
+    if (req.files.heroImage) data.heroImage = '/images/' + req.files.heroImage[0].filename;
+  }
+  // Preserve existing values if not changed
   const current = db.getProfile();
   if (!data.photo) data.photo = current.photo;
+  if (!data.heroImage) data.heroImage = current.heroImage || '';
   db.saveProfile(data);
   res.redirect('/admin/profile');
 });

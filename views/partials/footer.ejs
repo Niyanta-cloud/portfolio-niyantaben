@@ -58,5 +58,27 @@ function viewResume() {
 }
 </script>
 <script src="/js/main.js"></script>
+<script>
+(function() {
+  var page = document.getElementById('page');
+  if (!page) return;
+  var base = 1100;
+  function fit() {
+    var w = window.innerWidth;
+    if (w < base) {
+      var s = w / base;
+      page.style.transformOrigin = 'top left';
+      page.style.transform = 'scale(' + s + ')';
+      page.style.width = (100 / s) + '%';
+    } else {
+      page.style.transform = '';
+      page.style.width = '';
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
+</div>
 </body>
 </html>

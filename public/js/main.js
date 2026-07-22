@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Resume: view toggle
+  window.viewResume = function() {
+    const el = document.getElementById('resumeView');
+    if (el) {
+      el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+    }
+  };
+
+  // Resume: language switch
+  window.updateResume = function() {
+    const sel = document.getElementById('resumeLang');
+    const embed = document.getElementById('resumeEmbed');
+    const download = document.getElementById('resumeDownload');
+    if (sel && embed && download) {
+      const key = sel.value === 'de' ? 'data-de' : 'data-en';
+      const url = embed.getAttribute(key);
+      if (url) {
+        embed.src = url;
+        download.href = url;
+      }
+    }
+  };
+
   // Theme toggle
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
@@ -12,19 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('theme', next || 'light');
     });
   }
-
-  // Mobile nav toggle
-  const toggleBtn = document.getElementById('mobileToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener('click', function() {
-      navLinks.classList.toggle('show');
-    });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('show'));
-    });
-  }
-
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-question');

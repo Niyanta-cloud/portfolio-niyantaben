@@ -1,13 +1,13 @@
 {
   "name": "Niyantaben Patoliya",
-  "title": "Junior Cloud Architect | Cloud Engineer | Software Developer",
-  "tagline": "Motivated IT graduate with hands-on experience in software development, cloud computing, system administration, and networking. Passionate about Infrastructure as Code (IaC), DevOps, and continuous learning to deliver reliable, efficient, and modern cloud solutions.",
-  "taglineDe": "Motivierte IT-Absolventin mit praktischer Erfahrung in der Softwareentwicklung und wachsendem Fokus auf Cloud-Technologien sowie System- und Netzwerkadministration.",
   "subtitle": "Junior Cloud Architect | Cloud Engineer | Software Developer",
   "subtitleDe": "Junior Cloud-Architektin | Cloud-Ingenieurin | Softwareentwicklerin",
-  "desc": "Building secure, scalable, and automated cloud solutions with AWS, Terraform, Docker, and Linux.",
-  "descDe": "Aufbau sicherer, skalierbarer und automatisierter Cloud-Lösungen mit AWS, Terraform, Docker und Linux.",
+  "desc": "",
+  "descDe": "",
+  "tagline": "Motivated IT graduate with a passion for cloud computing, automation, and innovation. Committed to building secure, scalable, and reliable cloud solutions using modern technologies. Continuously learning and growing to deliver impactful solutions as a Cloud Engineer.",
+  "taglineDe": "Motivierte IT-Absolventin mit praktischer Erfahrung in der Softwareentwicklung und wachsendem Fokus auf Cloud-Technologien sowie System- und Netzwerkadministration.",
   "tech": "AWS • Terraform • Docker • Linux • Azure • DevOps • Networking",
   "intro": "",
-  "photo": "/images/1784139563260-67c28214.jpg"
+  "photo": "/images/1784658731905-5ee5bbf3.jpg",
+  "heroImage": ""
 }
