@@ -35,6 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('theme', next || 'light');
     });
   }
+
+  // Mobile nav toggle
+  const toggleBtn = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', function() {
+      navLinks.classList.toggle('show');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('show'));
+    });
+  }
+
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-question');

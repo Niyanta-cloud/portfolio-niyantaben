@@ -203,9 +203,9 @@ app.get('/admin/certifications/add', requireAdmin, (req, res) => {
 });
 
 app.post('/admin/certifications/add', requireAdmin, upload.single('file'), (req, res) => {
-  const { title, organization, issueDate } = req.body;
+  const { title, organization, issueDate, status } = req.body;
   const file = req.file ? '/uploads/certificates/' + req.file.filename : '';
-  db.addCertification({ title, organization, issueDate, file });
+  db.addCertification({ title, organization, issueDate, file, status });
   res.redirect('/admin/certifications');
 });
 
@@ -216,8 +216,8 @@ app.get('/admin/certifications/edit/:id', requireAdmin, (req, res) => {
 });
 
 app.post('/admin/certifications/edit/:id', requireAdmin, upload.single('file'), (req, res) => {
-  const { title, organization, issueDate } = req.body;
-  const data = { title, organization, issueDate };
+  const { title, organization, issueDate, status } = req.body;
+  const data = { title, organization, issueDate, status };
   if (req.file) data.file = '/uploads/certificates/' + req.file.filename;
   db.updateCertification(req.params.id, data);
   res.redirect('/admin/certifications');
@@ -238,10 +238,10 @@ app.get('/admin/projects/add', requireAdmin, (req, res) => {
 });
 
 app.post('/admin/projects/add', requireAdmin, upload.single('screenshot'), (req, res) => {
-  const { name, description, technologies, github, demo } = req.body;
+  const { name, description, technologies, github, demo, status } = req.body;
   const techArr = technologies ? technologies.split(',').map(t => t.trim()) : [];
   const screenshot = req.file ? '/uploads/projects/' + req.file.filename : '';
-  db.addProject({ name, description, technologies: techArr, github, demo, screenshot });
+  db.addProject({ name, description, technologies: techArr, github, demo, screenshot, status });
   res.redirect('/admin/projects');
 });
 
@@ -252,11 +252,11 @@ app.get('/admin/projects/edit/:id', requireAdmin, (req, res) => {
 });
 
 app.post('/admin/projects/edit/:id', requireAdmin, upload.single('screenshot'), (req, res) => {
-  const { name, description, technologies, github, demo } = req.body;
+  const { name, description, technologies, github, demo, status } = req.body;
   const data = {
     name, description,
     technologies: technologies ? technologies.split(',').map(t => t.trim()) : [],
-    github, demo
+    github, demo, status
   };
   if (req.file) data.screenshot = '/uploads/projects/' + req.file.filename;
   db.updateProject(req.params.id, data);

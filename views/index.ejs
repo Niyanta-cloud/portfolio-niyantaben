@@ -99,11 +99,12 @@
       <h2><%= t('skills_title') %></h2>
       <div class="skills-professional">
         <% var techIcons = { 'AWS':'fab fa-aws','Azure':'fab fa-microsoft','Terraform':'fas fa-cloud','HCL':'fas fa-code','Networking':'fas fa-network-wired','Linux':'fab fa-linux','Docker':'fab fa-docker','Kubernetes':'fas fa-server','CI/CD':'fas fa-arrows-rotate','Git/GitHub':'fab fa-github','GitHub Actions':'fab fa-github','Prometheus':'fas fa-chart-line','Grafana':'fas fa-chart-area','C':'fas fa-code','C++':'fas fa-code','COBOL':'fas fa-code','Java':'fab fa-java','J2EE':'fas fa-code','Python':'fab fa-python','PHP':'fab fa-php','.NET':'fab fa-windows','SQL':'fas fa-database','NoSQL':'fas fa-database','Oracle':'fas fa-database','MongoDB':'fas fa-leaf' }; %>
+        <% var techColors = { 'AWS':'#FF9900','Azure':'#0078D4','Terraform':'#7B42BC','Docker':'#2496ED','Kubernetes':'#326CE5','Linux':'#FCC624','Git/GitHub':'#181717','GitHub Actions':'#181717','Prometheus':'#E6522C','Grafana':'#F46800','Java':'#ED8B00','Python':'#3776AB','PHP':'#777BB4','.NET':'#512BD4','Oracle':'#4285F4','MongoDB':'#47A248','C++':'#00599C','C':'#A8B9CC' }; %>
         <div class="skill-category">
           <div class="skill-cat-header"><i class="fas fa-cloud"></i> Cloud & Infrastructure</div>
           <div class="skill-items">
             <% ['AWS', 'Azure', 'Terraform', 'HCL', 'Networking'].forEach(s => { %>
-              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>" style="<%= techColors[s] ? 'color:'+techColors[s] : '' %>"></i><%= s %></span><% } %>
             <% }) %>
           </div>
         </div>
@@ -111,7 +112,7 @@
           <div class="skill-cat-header"><i class="fas fa-cogs"></i> DevOps & Tools</div>
           <div class="skill-items">
             <% ['Docker', 'Kubernetes', 'CI/CD', 'Git/GitHub', 'Linux', 'Prometheus', 'Grafana', 'GitHub Actions'].forEach(s => { %>
-              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>" style="<%= techColors[s] ? 'color:'+techColors[s] : '' %>"></i><%= s %></span><% } %>
             <% }) %>
           </div>
         </div>
@@ -119,7 +120,7 @@
           <div class="skill-cat-header"><i class="fas fa-code"></i> Programming Languages</div>
           <div class="skill-items">
             <% ['C', 'C++', 'COBOL', 'Java', 'J2EE', 'Python', 'PHP', '.NET'].forEach(s => { %>
-              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>" style="<%= techColors[s] ? 'color:'+techColors[s] : '' %>"></i><%= s %></span><% } %>
             <% }) %>
           </div>
         </div>
@@ -127,7 +128,7 @@
           <div class="skill-cat-header"><i class="fas fa-database"></i> Databases</div>
           <div class="skill-items">
             <% ['SQL', 'NoSQL', 'Oracle', 'MongoDB'].forEach(s => { %>
-              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>"></i><%= s %></span><% } %>
+              <% if (skills.includes(s)) { %><span class="skill-item"><i class="<%= techIcons[s] %>" style="<%= techColors[s] ? 'color:'+techColors[s] : '' %>"></i><%= s %></span><% } %>
             <% }) %>
           </div>
         </div>
@@ -163,9 +164,12 @@
               <h3><%= l(cert, 'title') %></h3>
               <div class="org"><%= cert.organization %></div>
               <div class="date"><%= cert.issueDate %></div>
+              <% if (cert.status) { %>
+                <span class="cert-status cert-status-<%= cert.status %>"><%= cert.status === 'completed' ? t('cert_completed') : t('cert_process') %></span>
+              <% } %>
               <% if (cert.file) { %>
                 <% if (cert.file.endsWith('.pdf')) { %>
-                  <a class="cert-pdf-link" href="<%= cert.file %>" target="_blank"><i class="fas fa-file-pdf"></i> <%= t('cert_view_pdf') %></a>
+                  <a class="btn btn-primary" href="<%= cert.file %>" target="_blank"><i class="fas fa-eye"></i> <%= t('cert_view_pdf') %></a>
                 <% } else { %>
                   <img class="cert-preview" src="<%= cert.file %>" alt="<%= cert.title %>" data-src="<%= cert.file %>">
                 <% } %>
@@ -192,6 +196,9 @@
               <% if (proj.screenshot) { %><img src="<%= proj.screenshot %>" alt="<%= proj.name %>"><% } %>
               <div class="body">
                 <h3><%= proj.name %></h3>
+                <% if (proj.status) { %>
+                  <span class="cert-status cert-status-<%= proj.status %>"><%= proj.status === 'completed' ? t('cert_completed') : t('cert_process') %></span>
+                <% } %>
                 <p><%= proj.description %></p>
                 <div class="tech">
                   <% (proj.technologies || []).forEach(t => { %><span><%= t %></span><% }) %>
@@ -271,15 +278,15 @@
       <div class="contact-grid">
         <div class="contact-info">
           <h3><%= t('contact_details') %></h3>
-          <% if (settings.email) { %><p><i class="fas fa-envelope"></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank"><%= settings.email %></a></p><% } %>
-          <% if (settings.phone) { %><p><i class="fas fa-phone"></i> <%= settings.phone %></p><% } %>
-          <% if (settings.location) { %><p><i class="fas fa-map-marker-alt"></i> <%= settings.location %></p><% } %>
+          <% if (settings.email) { %><p><svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 48 36" style="vertical-align:middle;margin-right:6px"><rect fill="#f6f6f6" width="48" height="36" rx="4"/><path d="M6 8l18 12L42 8v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8z" fill="#fff"/><path d="M42 8L24 20 6 8V6a2 2 0 0 1 2-2h32a2 2 0 0 1 2 2v2z" fill="#EA4335"/><path d="M6 8v20l12-14L6 8z" fill="#4285F4"/><path d="M42 8v20L30 14l12-6z" fill="#34A853"/><path d="M6 28l12-14 6 8 6-8 12 14H6z" fill="#FBBC05"/><path d="M6 8l18 12L42 8" fill="#C5221F" opacity=".6"/></svg> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank"><%= settings.email %></a></p><% } %>
+          <% if (settings.phone) { %><p><i class="fas fa-phone" style="color:#25D366"></i> <%= settings.phone %></p><% } %>
+          <% if (settings.location) { %><p><i class="fas fa-map-marker-alt" style="color:#5F6368"></i> <%= settings.location %></p><% } %>
           <div class="social-links">
-            <% if (settings.social && settings.social.github) { %><a href="<%= settings.social.github %>" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a><% } %>
-            <% if (settings.social && settings.social.linkedin) { %><a href="<%= settings.social.linkedin %>" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><% } %>
-            <% if (settings.social && settings.social.twitter) { %><a href="<%= settings.social.twitter %>" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a><% } %>
-            <% if (settings.social && settings.social.xing) { %><a href="<%= settings.social.xing %>" target="_blank" aria-label="Xing"><i class="fab fa-xing"></i></a><% } %>
-            <% if (settings.email) { %><a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a><% } %>
+            <% if (settings.social && settings.social.github) { %><a href="<%= settings.social.github %>" target="_blank" aria-label="GitHub"><i class="fab fa-github" style="color:#333"></i></a><% } %>
+            <% if (settings.social && settings.social.linkedin) { %><a href="<%= settings.social.linkedin %>" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in" style="color:#0A66C2"></i></a><% } %>
+            <% if (settings.social && settings.social.twitter) { %><a href="<%= settings.social.twitter %>" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter" style="color:#000"></i></a><% } %>
+            <% if (settings.social && settings.social.xing) { %><a href="<%= settings.social.xing %>" target="_blank" aria-label="Xing"><i class="fab fa-xing" style="color:#006567"></i></a><% } %>
+            <% if (settings.email) { %><a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= settings.email %>" target="_blank" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 48 36"><rect fill="#f6f6f6" width="48" height="36" rx="4"/><path d="M6 8l18 12L42 8v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8z" fill="#fff"/><path d="M42 8L24 20 6 8V6a2 2 0 0 1 2-2h32a2 2 0 0 1 2 2v2z" fill="#EA4335"/><path d="M6 8v20l12-14L6 8z" fill="#4285F4"/><path d="M42 8v20L30 14l12-6z" fill="#34A853"/><path d="M6 28l12-14 6 8 6-8 12 14H6z" fill="#FBBC05"/><path d="M6 8l18 12L42 8" fill="#C5221F" opacity=".6"/></svg></a><% } %>
           </div>
         </div>
         <div>

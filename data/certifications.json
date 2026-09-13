@@ -4,7 +4,8 @@
     "title": "Netzwerkgrundlagen",
     "titleDe": "Netzwerkgrundlagen",
     "organization": "Cisco Networking Academy",
-    "issueDate": ""
+    "issueDate": "",
+    "status": "completed"
   },
   {
     "id": "3",
@@ -12,32 +13,37 @@
     "titleDe": "KI- und Automatisierungsclub – Projektentwicklerin",
     "organization": "Digital Career Institute (DCI)",
     "issueDate": "6th of August, 2026",
-    "file": "/uploads/certificates/1789301285192-412a6c39.pdf"
+    "file": "/uploads/certificates/1789301285192-412a6c39.pdf",
+    "status": "completed"
   },
   {
     "id": "4",
-    "title": "JavaScript, Linux, COBOL, Git",
+    "title": "JavaScript, COBOL",
     "organization": "Deutsche Rentenversicherung",
-    "issueDate": ""
+    "issueDate": "",
+    "status": "completed"
   },
   {
     "id": "5",
     "title": "System Administration",
     "titleDe": "Systemadministration",
     "organization": "Digital Career Institute (DCI)",
-    "issueDate": ""
+    "issueDate": "",
+    "status": "completed"
   },
   {
     "id": "6",
     "title": "AWS Architecture",
     "titleDe": "AWS-Architektur",
     "organization": "Digital Career Institute (DCI)",
-    "issueDate": ""
+    "issueDate": "",
+    "status": "process"
   },
   {
     "id": "7",
     "title": "Terraform (IaC)",
     "organization": "Digital Career Institute (DCI)",
-    "issueDate": ""
+    "issueDate": "",
+    "status": "process"
   }
 ]

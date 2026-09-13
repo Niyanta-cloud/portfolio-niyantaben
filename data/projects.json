@@ -1,13 +1,14 @@
 [
   {
     "id": "1",
-    "name": "Serverless URL Shortener",
-    "description": "Short-link service built on Lambda, API Gateway, and DynamoDB with a React frontend deployed via CloudFront.",
+    "name": "Master's Project:",
+    "description": "• FoodLine – Mobile Application",
     "technologies": [
-      "AWS Lambda",
-      "API Gateway",
-      "DynamoDB",
-      "React"
+      "Android Studio",
+      "Java",
+      "PHP",
+      "MySQL",
+      ""
     ],
     "github": "",
     "demo": "",
@@ -15,13 +16,12 @@
   },
   {
     "id": "2",
-    "name": "Infra Home Lab",
-    "description": "Multi-node Kubernetes cluster on Raspberry Pi managed with Ansible, with Prometheus and Grafana monitoring.",
+    "name": "Bachelor's Projects",
+    "description": "1. Bachelor's Projects:\r\n  • YMM – Web Application\r\n  • Online Employment Card  Web Application",
     "technologies": [
-      "Kubernetes",
-      "Ansible",
-      "Prometheus",
-      "Grafana"
+      "ASP.NET (C#)",
+      "MVC-Architektur",
+      "SQL."
     ],
     "github": "",
     "demo": "",
@@ -29,16 +29,15 @@
   },
   {
     "id": "3",
-    "name": "Terraform AWS Landing Zone",
-    "description": "Modular Terraform codebase for multi-account AWS organization with VPCs, IAM roles, and S3 logging.",
+    "name": "Terraform + AWS Project ",
+    "description": "",
     "technologies": [
       "Terraform",
-      "AWS",
-      "GitHub Actions",
-      "S3"
+      "AWS"
     ],
     "github": "",
     "demo": "",
-    "screenshot": ""
+    "screenshot": "",
+    "status": "process"
   }
 ]
