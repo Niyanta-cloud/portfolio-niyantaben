@@ -4,3 +4,4 @@ server-output.log
 index.html
 seed.js
 middleware/
+public/uploads/

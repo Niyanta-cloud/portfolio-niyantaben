@@ -164,8 +164,11 @@
               <div class="org"><%= cert.organization %></div>
               <div class="date"><%= cert.issueDate %></div>
               <% if (cert.file) { %>
-                <img class="cert-preview" src="<%= cert.file %>" alt="<%= cert.title %>" data-src="<%= cert.file %>">
-                <p class="empty-msg"><%= t('cert_no_download') %></p>
+                <% if (cert.file.endsWith('.pdf')) { %>
+                  <a class="cert-pdf-link" href="<%= cert.file %>" target="_blank"><i class="fas fa-file-pdf"></i> <%= t('cert_view_pdf') %></a>
+                <% } else { %>
+                  <img class="cert-preview" src="<%= cert.file %>" alt="<%= cert.title %>" data-src="<%= cert.file %>">
+                <% } %>
               <% } else { %>
                 <div class="cert-no-img" data-src=""><%= t('cert_view') %></div>
               <% } %>
